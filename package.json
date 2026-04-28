@@ -2,7 +2,7 @@
   "private": true,
   "name": "portfolio",
   "version": "1.0.0",
-  "homepage": "https://shahzadarksher.github.io",
+  "homepage": "https://shahzadarksher.github.io/-portfolio",
   "scripts": {
     "build": "react-scripts --openssl-legacy-provider build",
     "predeploy": "npm run build",

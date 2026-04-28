@@ -9,6 +9,7 @@ import { greeting } from "../../portfolio.js";
 
 export default function Projects() {
   const [repo, setrepo] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getRepoData();
@@ -32,10 +33,12 @@ export default function Projects() {
           {
             repositoryOwner(login: "${openSource.githubUserName}") {
               ... on User {
-                pinnedRepositories(first: 6) {
+                repositories(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}) {
+                  totalCount
                   edges {
                     node {
                       nameWithOwner
+                      name
                       description
                       forkCount
                       stargazers {
@@ -44,6 +47,10 @@ export default function Projects() {
                       url
                       id
                       diskUsage
+                      isPrivate
+                      isArchived
+                      updatedAt
+                      createdAt
                       primaryLanguage {
                         name
                         color
@@ -57,8 +64,14 @@ export default function Projects() {
         `,
       })
       .then((result) => {
-        setrepoFunction(result.data.repositoryOwner.pinnedRepositories.edges);
-        console.log(result);
+        const allRepos = result.data.repositoryOwner.repositories.edges;
+        setrepoFunction(allRepos);
+        setLoading(false);
+        console.log(`Loaded ${allRepos.length} repositories`);
+      })
+      .catch((error) => {
+        console.error("Error fetching repositories:", error);
+        setLoading(false);
       });
   }
 
@@ -68,18 +81,39 @@ export default function Projects() {
 
   return (
     <div className="main" id="opensource">
-      <h1 className="project-title">Open Source Projects</h1>
-      <div className="repo-cards-div-main">
-        {repo.map((v, i) => {
-          return <GithubRepoCard repo={v} key={v.node.id} />;
-        })}
+      <div className="project-header">
+        <h1 className="project-title">🚀 All GitHub Projects</h1>
+        <p className="project-subtitle">
+          Explore {repo.length} of my repositories
+        </p>
       </div>
-      <Button
-        text={"More Projects"}
-        className="project-button"
-        href={greeting.githubProfile}
-        newTab={true}
-      />
+      {loading ? (
+        <div className="loading-container">
+          <div className="loader"></div>
+          <p>Loading projects...</p>
+        </div>
+      ) : (
+        <>
+          <div className="repo-cards-div-main">
+            {repo.map((v, i) => {
+              return <GithubRepoCard repo={v} key={v.node.id} />;
+            })}
+          </div>
+          {repo.length === 0 && (
+            <div className="no-projects-message">
+              <p>No public repositories found.</p>
+            </div>
+          )}
+        </>
+      )}
+      <div className="project-footer">
+        <Button
+          text={"View More on GitHub"}
+          className="project-button"
+          href={greeting.githubProfile}
+          newTab={true}
+        />
+      </div>
     </div>
   );
 }

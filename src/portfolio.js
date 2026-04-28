@@ -22,8 +22,7 @@ const greeting = {
   nickname: "shahzad",
   subTitle:
     "Full Stack Developer passionate about building modern web applications and learning new technologies.",
-  resumeLink:
-    "https://drive.google.com/",
+  resumeLink: "/resume",
   portfolio_repository: "https://github.com/shahzadarksher/portfolio",
   githubProfile: "https://github.com/shahzadarksher",
 };
@@ -170,7 +169,8 @@ const contactPageData = {
   },
   blogSection: {
     title: "Blogs",
-    subtitle: "I like to document my technical experiences and share knowledge.",
+    subtitle:
+      "I like to document my technical experiences and share knowledge.",
     link: "https://medium.com/@yourusername",
     avatar_image_path: "blogs_image.svg",
   },
