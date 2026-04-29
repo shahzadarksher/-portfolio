@@ -21,7 +21,7 @@ export default function Projects() {
       request: (operation) => {
         operation.setContext({
           headers: {
-            authorization: `Bearer ${atob(openSource.githubConvertedToken)}`,
+            authorization: `Bearer ${openSource.githubConvertedToken}`,
           },
         });
       },
@@ -67,11 +67,12 @@ export default function Projects() {
         const allRepos = result.data.repositoryOwner.repositories.edges;
         setrepoFunction(allRepos);
         setLoading(false);
-        console.log(`Loaded ${allRepos.length} repositories`);
       })
       .catch((error) => {
         console.error("Error fetching repositories:", error);
         setLoading(false);
+        // Set empty array on error
+        setrepoFunction([]);
       });
   }
 

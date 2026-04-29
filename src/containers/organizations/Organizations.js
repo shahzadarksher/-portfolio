@@ -7,6 +7,10 @@ import OrganizationsData from "../../shared/opensource/organizations.json";
 class Organizations extends Component {
   render() {
     const theme = this.props.theme;
+    const orgsArray =
+      OrganizationsData && OrganizationsData["data"]
+        ? OrganizationsData["data"]
+        : [];
     return (
       <div id="organizations">
         <div className="organizations-header-div">
@@ -16,7 +20,14 @@ class Organizations extends Component {
             </h1>
           </Fade>
         </div>
-        <OrganizationList logos={OrganizationsData["data"]} />
+        {orgsArray.length > 0 ? (
+          <OrganizationList logos={orgsArray} />
+        ) : (
+          <p style={{ color: theme.text }}>
+            No organizations data available. Please run git_data_fetcher.mjs to
+            fetch data.
+          </p>
+        )}
       </div>
     );
   }

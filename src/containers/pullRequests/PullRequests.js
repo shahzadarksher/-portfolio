@@ -7,6 +7,10 @@ import pullRequestsData from "../../shared/opensource/pull_requests.json";
 class PullRequests extends Component {
   render() {
     const theme = this.props.theme;
+    const pullRequestsArray =
+      pullRequestsData && pullRequestsData["data"]
+        ? pullRequestsData["data"]
+        : [];
     return (
       <div>
         <div className="pull-requests-header-div">
@@ -17,9 +21,21 @@ class PullRequests extends Component {
           </Fade>
         </div>
         <div className="pull-request-body-div">
-          {pullRequestsData["data"].map((pullRequest) => {
-            return <PullRequestCard pullRequest={pullRequest} />;
-          })}
+          {pullRequestsArray.length > 0 ? (
+            pullRequestsArray.map((pullRequest) => {
+              return (
+                <PullRequestCard
+                  pullRequest={pullRequest}
+                  key={pullRequest.id}
+                />
+              );
+            })
+          ) : (
+            <p style={{ color: theme.text }}>
+              No pull requests data available. Please run git_data_fetcher.mjs
+              to fetch data.
+            </p>
+          )}
         </div>
       </div>
     );

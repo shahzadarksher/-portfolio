@@ -1,4 +1,4 @@
-/* Change this file to get your personal Porfolio */
+/* Change this file to get your personal Portfolio */
 
 // Website related settings
 const settings = {
@@ -25,6 +25,12 @@ const greeting = {
   resumeLink: "/resume",
   portfolio_repository: "https://github.com/shahzadarksher/portfolio",
   githubProfile: "https://github.com/shahzadarksher",
+};
+
+// Open Source Information (for GitHub API calls)
+const openSource = {
+  githubConvertedToken: process.env.REACT_APP_GITHUB_TOKEN || "",
+  githubUserName: process.env.REACT_APP_GITHUB_USERNAME || "shahzadarksher",
 };
 
 const socialMediaLinks = [
@@ -159,6 +165,13 @@ const projectsHeader = {
   avatar_image_path: "projects_image.svg",
 };
 
+// Achievements Page
+const achievementSection = {
+  title: "Achievements",
+  subtitle: "Awards and Recognition",
+  achievementsCards: [],
+};
+
 // Contact Page
 const contactPageData = {
   contactSection: {
@@ -181,12 +194,14 @@ export {
   seo,
   greeting,
   socialMediaLinks,
+  openSource,
   skills,
   // competitiveSites,
   degrees,
   certifications,
   experience,
   projectsHeader,
+  achievementSection,
   // publicationsHeader,
   // publications,
   contactPageData,

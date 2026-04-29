@@ -9,6 +9,17 @@ const openSource = {
   githubUserName: process.env.GITHUB_USERNAME,
 };
 
+// Validate environment variables
+if (!openSource.githubConvertedToken || !openSource.githubUserName) {
+  console.error(
+    "Error: GITHUB_TOKEN and GITHUB_USERNAME environment variables are required!"
+  );
+  console.error(
+    "Please check your .env file and ensure both variables are set."
+  );
+  process.exit(1);
+}
+
 const query_pr = {
   query: `
 	query {

@@ -20,10 +20,6 @@ class Projects extends Component {
           <Fade bottom duration={2000} distance="40px">
             <div className="projects-heading-div">
               <div className="projects-heading-img-div">
-                {/* <img
-											src={require(`../../assets/images/${projectsHeader["avatar_image_path"]}`)}
-											alt=""
-										/> */}
                 <ProjectsImg theme={theme} />
               </div>
               <div className="projects-heading-text-div">
@@ -44,9 +40,16 @@ class Projects extends Component {
           </Fade>
         </div>
         <div className="repo-cards-div-main">
-          {ProjectsData.data.map((repo) => {
-            return <GithubRepoCard repo={repo} theme={theme} />;
-          })}
+          {ProjectsData && ProjectsData.data && ProjectsData.data.length > 0 ? (
+            ProjectsData.data.map((repo) => {
+              return <GithubRepoCard repo={repo} theme={theme} key={repo.id} />;
+            })
+          ) : (
+            <p style={{ color: theme.text }}>
+              No projects data available. Please run git_data_fetcher.mjs to
+              fetch data.
+            </p>
+          )}
         </div>
         <Button
           text={"More Projects"}

@@ -7,6 +7,8 @@ import issuesData from "../../shared/opensource/issues.json";
 class Issues extends Component {
   render() {
     const theme = this.props.theme;
+    const issuesArray =
+      issuesData && issuesData["data"] ? issuesData["data"] : [];
     return (
       <div>
         <div className="issues-header-div">
@@ -17,9 +19,16 @@ class Issues extends Component {
           </Fade>
         </div>
         <div className="issues-body-div">
-          {issuesData["data"].map((issue) => {
-            return <IssueCard issue={issue} />;
-          })}
+          {issuesArray.length > 0 ? (
+            issuesArray.map((issue) => {
+              return <IssueCard issue={issue} key={issue.id} />;
+            })
+          ) : (
+            <p style={{ color: theme.text }}>
+              No issues data available. Please run git_data_fetcher.mjs to fetch
+              data.
+            </p>
+          )}
         </div>
       </div>
     );
