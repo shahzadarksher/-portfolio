@@ -1,15 +1,11 @@
 import React from "react";
 import "./Resume.css";
 import { Fade } from "react-reveal";
-import { greeting, skills } from "../../portfolio";
+import { greeting } from "../../portfolio";
 import { useRef } from "react";
 
 export default function Resume() {
   const resumeRef = useRef();
-
-  const downloadResume = () => {
-    window.print();
-  };
 
   const handleDownloadPDF = () => {
     // This will open the print dialog which can be saved as PDF
@@ -20,13 +16,42 @@ export default function Resume() {
     <Fade bottom duration={1000} distance="20px">
       <div className="resume-container" ref={resumeRef}>
         <div className="resume-header-section">
-          <h1 className="resume-name">Shahzad</h1>
-          <p className="resume-title">DevOps Engineer & Full Stack Developer</p>
+          <div className="resume-dp-container">
+            <img
+              src={require("../../assets/images/profile-dp.jpg")}
+              alt="Rizwan Karim"
+              className="resume-dp"
+            />
+          </div>
+          <h1 className="resume-name">Rizwan Karim</h1>
+          <p className="resume-title">
+            Quality Assurance Engineer | Web Developer | AI Developer
+          </p>
           <div className="resume-contact-info">
-            <span>📧 shahzad@example.com</span>
-            <span>📱 +91 (Your Phone)</span>
-            <span>🔗 github.com/shahzadarksher</span>
-            <span>💼 linkedin.com/in/shahzad</span>
+            <span>
+              <span role="img" aria-label="email">
+                📧
+              </span>{" "}
+              i221370@nu.edu.pk
+            </span>
+            <span>
+              <span role="img" aria-label="phone">
+                📱
+              </span>{" "}
+              +92 3129797925
+            </span>
+            <span>
+              <span role="img" aria-label="link">
+                🔗
+              </span>{" "}
+              github.com/shahzadarksher
+            </span>
+            <span>
+              <span role="img" aria-label="briefcase">
+                💼
+              </span>{" "}
+              linkedin.com/in/shahzadarksher
+            </span>
           </div>
         </div>
 
@@ -34,153 +59,149 @@ export default function Resume() {
           <h2 className="resume-section-title">Professional Summary</h2>
           <div className="resume-content">
             <p>
-              {greeting.subTitle} I began my career as a Full-Stack Developer
-              working with Python, Django, and Vue.js, and later transitioned
-              into a DevOps Engineer, driven by a strong interest in Linux,
-              cloud platforms, and infrastructure automation.
+              Motivated Quality Assurance Engineer and Full Stack Developer with
+              expertise in manual testing, automation, web development, and
+              artificial intelligence. Passionate about ensuring software
+              quality, building responsive web applications, and implementing AI
+              solutions. Currently pursuing studies at FAST-NUCES Islamabad
+              (2022-2026) with a strong foundation in computer science and
+              practical development skills.
             </p>
           </div>
         </div>
 
         <div className="resume-section">
-          <h2 className="resume-section-title">🎯 Core Competencies</h2>
+          <h2 className="resume-section-title">
+            <span role="img" aria-label="target">
+              🎯
+            </span>{" "}
+            Core Competencies
+          </h2>
           <div className="resume-skills-grid">
             <div className="skill-category">
-              <h3>DevOps & Infrastructure</h3>
+              <h3>Quality Assurance & Testing</h3>
               <ul>
-                <li>Docker & Kubernetes</li>
-                <li>CI/CD (Jenkins)</li>
-                <li>Linux Administration</li>
-                <li>Cloud Infrastructure</li>
-                <li>Database Clustering (MySQL, PostgreSQL, MongoDB)</li>
-                <li>Monitoring (Prometheus, Grafana, Loki)</li>
+                <li>Manual Testing & Test Case Design</li>
+                <li>Automated Testing (Selenium)</li>
+                <li>Bug Tracking & Reporting</li>
+                <li>Test Management Tools</li>
+                <li>API Testing</li>
+                <li>Performance Testing Basics</li>
               </ul>
             </div>
             <div className="skill-category">
-              <h3>Backend Development</h3>
+              <h3>Web & AI Development</h3>
               <ul>
-                <li>Python & Django</li>
-                <li>Node.js</li>
-                <li>Django REST Framework</li>
-                <li>Database Design</li>
-                <li>API Development</li>
-                <li>MQTT Protocol</li>
+                <li>Python & JavaScript</li>
+                <li>React.js & Node.js</li>
+                <li>Machine Learning Basics</li>
+                <li>Deep Learning (TensorFlow, PyTorch)</li>
+                <li>REST API Development</li>
+                <li>Database Management</li>
               </ul>
             </div>
             <div className="skill-category">
-              <h3>Frontend Development</h3>
+              <h3>Web Technologies</h3>
               <ul>
-                <li>React.js</li>
                 <li>HTML5 & CSS3</li>
-                <li>JavaScript</li>
-                <li>Vue.js</li>
-                <li>Responsive Design</li>
-                <li>Git & Version Control</li>
+                <li>JavaScript & TypeScript</li>
+                <li>Responsive Web Design</li>
+                <li>Git & GitHub</li>
+                <li>Bootstrap & Tailwind CSS</li>
+                <li>Web Accessibility</li>
               </ul>
             </div>
           </div>
         </div>
 
         <div className="resume-section">
-          <h2 className="resume-section-title">💼 Work Experience</h2>
+          <h2 className="resume-section-title">
+            <span role="img" aria-label="briefcase">
+              💼
+            </span>{" "}
+            Education
+          </h2>
           <div className="resume-experience-item">
             <div className="exp-header">
-              <h3>DevOps Engineer</h3>
-              <span className="exp-date">June 2023 - Current</span>
+              <h3>Bachelor of Science in Computer Science</h3>
+              <span className="exp-date">2022 - 2026</span>
             </div>
             <p className="exp-company">
-              Kochar Innovations Private Limited - Amritsar, Punjab
+              FAST-NUCES (National University of Computer and Emerging Sciences)
+              - Islamabad
             </p>
             <ul className="exp-description">
               <li>
-                Deployment of applications using Docker on production
-                infrastructure
+                Passionate coder who loves to learn new technologies and solve
+                complex problems
               </li>
               <li>
-                Configuration of Database clusters for High Availability (MySQL,
-                PostgreSQL, MongoDB, Typesense, Clickhouse, Redis, KeyDB)
+                Experienced in web development, quality assurance, and
+                artificial intelligence
               </li>
               <li>
-                Deployed Keycloak in High Availability mode and integrated SSO
-                for applications
+                Always eager to take on new challenges and contribute to
+                innovative projects
               </li>
-              <li>Managing Cloud Infrastructure and leading the DevOps team</li>
-              <li>Designing System Architecture for High Availability</li>
-              <li>Configuration of CI/CD using Jenkins from scratch</li>
             </ul>
           </div>
         </div>
 
         <div className="resume-section">
-          <h2 className="resume-section-title">📚 Internship Experience</h2>
+          <h2 className="resume-section-title">
+            <span role="img" aria-label="projects">
+              🚀
+            </span>{" "}
+            Key Projects
+          </h2>
 
           <div className="resume-experience-item">
             <div className="exp-header">
-              <h3>IT Intern</h3>
-              <span className="exp-date">June 2022 - May 2023</span>
+              <h3>E-Commerce Web Application</h3>
+              <span className="exp-date">2024</span>
             </div>
-            <p className="exp-company">
-              Kochar Infotech Ltd. - Gurgaon, Haryana
-            </p>
             <ul className="exp-description">
               <li>
-                Configured monitoring infrastructure using Prometheus,
-                Alertmanager, Grafana, Loki and Fluentbit
+                Developed full-stack web application using React and Node.js
               </li>
-              <li>
-                Streamlined deployment process by dockerizing applications
-              </li>
-              <li>Customized Linux distro for organizational needs</li>
-              <li>
-                Developed admin panel using Python, Django and MQTT for system
-                tracking
-              </li>
-              <li>Configured auto data backup to S3 buckets</li>
+              <li>Implemented automated testing for QA and bug detection</li>
+              <li>Created responsive UI with modern CSS frameworks</li>
             </ul>
           </div>
 
           <div className="resume-experience-item">
             <div className="exp-header">
-              <h3>Full Stack Development Intern</h3>
-              <span className="exp-date">June 2021 - Oct 2021</span>
+              <h3>AI-Powered Chatbot</h3>
+              <span className="exp-date">2024</span>
             </div>
-            <p className="exp-company">The Code Work</p>
             <ul className="exp-description">
-              <li>Worked on Django and Django REST Framework projects</li>
-              <li>Developed frontend applications using Vue.js</li>
+              <li>Built conversational AI using TensorFlow and Python</li>
+              <li>Trained neural networks on custom datasets</li>
+              <li>Deployed web interface for chatbot interaction</li>
             </ul>
           </div>
 
           <div className="resume-experience-item">
             <div className="exp-header">
-              <h3>Software Development Intern</h3>
-              <span className="exp-date">Feb 2021 - May 2021</span>
+              <h3>Quality Assurance & Testing Framework</h3>
+              <span className="exp-date">2023-2024</span>
             </div>
-            <p className="exp-company">All World Gayatri Pariwar</p>
             <ul className="exp-description">
-              <li>Worked on Django, JavaScript and PHP projects</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="resume-section">
-          <h2 className="resume-section-title">🤝 Open Source Contributions</h2>
-          <div className="resume-experience-item">
-            <div className="exp-header">
-              <h3>Volunteer Contributor</h3>
-              <span className="exp-date">July 2020 - June 2021</span>
-            </div>
-            <p className="exp-company">Fedora Community Outreach Task Force</p>
-            <ul className="exp-description">
-              <li>Contributor at Fedora Community</li>
-              <li>Maintained open source projects on GitHub</li>
+              <li>Designed comprehensive test cases and documentation</li>
+              <li>Implemented Selenium-based automation testing</li>
+              <li>
+                Identified and reported critical bugs with detailed analysis
+              </li>
             </ul>
           </div>
         </div>
 
         <div className="resume-footer">
           <button className="download-btn" onClick={handleDownloadPDF}>
-            📥 Download Resume (PDF)
+            <span role="img" aria-label="download">
+              📥
+            </span>{" "}
+            Download Resume (PDF)
           </button>
           <a
             href="https://github.com/shahzadarksher"
@@ -188,7 +209,10 @@ export default function Resume() {
             rel="noopener noreferrer"
             className="profile-link"
           >
-            👤 View GitHub Profile
+            <span role="img" aria-label="user">
+              👤
+            </span>{" "}
+            View GitHub Profile
           </a>
         </div>
       </div>

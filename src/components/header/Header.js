@@ -93,7 +93,10 @@ class Header extends Component {
                   onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
                   onMouseOut={(event) => onMouseOut(event)}
                 >
-                  📄 Resume
+                  <span role="img" aria-label="document">
+                    📄
+                  </span>{" "}
+                  Resume
                 </NavLink>
               </li>
               <li>
@@ -105,7 +108,10 @@ class Header extends Component {
                   onMouseEnter={(event) => onMouseEnter(event, theme.highlight)}
                   onMouseOut={(event) => onMouseOut(event)}
                 >
-                  👤 Profile
+                  <span role="img" aria-label="user">
+                    👤
+                  </span>{" "}
+                  Profile
                 </a>
               </li>
               {/* <li>

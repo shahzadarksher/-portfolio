@@ -36,6 +36,23 @@
   padding-right: 2rem;
 }
 
+.resume-dp-container {
+  margin: 0 auto 1.5rem auto;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+}
+
+.resume-dp {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 .resume-name {
   font-size: 42px;
   font-weight: 800;
